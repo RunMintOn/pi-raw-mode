@@ -4,6 +4,10 @@ All notable changes to this project will be documented here.
 
 ## [Unreleased]
 
+### Changed
+
+- Added support for Pi 0.85.x.
+
 ## [0.1.0] - 2026-08-20
 
 ### Added

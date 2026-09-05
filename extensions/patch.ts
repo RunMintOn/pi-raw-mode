@@ -49,9 +49,9 @@ function unavailable(reason: string): RawModePatchController {
 
 export function installRawModePatch(initiallyEnabled: boolean): RawModePatchController {
 	const piVersion = (codingAgent as { VERSION?: unknown }).VERSION;
-	if (typeof piVersion !== "string" || !/^0\.84\./.test(piVersion)) {
+	if (typeof piVersion !== "string" || !/^0\.8[45]\./.test(piVersion)) {
 		return unavailable(
-			`Pi ${String(piVersion ?? "unknown")} is not supported; expected Pi 0.84.x.`,
+			`Pi ${String(piVersion ?? "unknown")} is not supported; expected Pi 0.84.x or 0.85.x.`,
 		);
 	}
 

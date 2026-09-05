@@ -90,7 +90,7 @@ This extension is directly inspired by [OpenAI Codex CLI's `/raw` mode](https://
 
 Codex owns and can rebuild its scrollback, so its raw mode can leave wrapping entirely to the terminal. Pi's public TUI component contract requires every rendered row to fit the available width. This extension therefore wraps long logical lines at terminal-cell boundaries; a copied long line may contain a hard line break where Pi wrapped it.
 
-Pi also does not currently expose a renderer hook for normal assistant messages. The extension installs a guarded patch around Pi's exported `AssistantMessageComponent` and restores each method it still owns on shutdown. Version 0.1.0 deliberately supports Pi 0.84.x only and disables itself with a warning on other Pi versions.
+Pi also does not currently expose a renderer hook for normal assistant messages. The extension installs a guarded patch around Pi's exported `AssistantMessageComponent` and restores each method it still owns on shutdown. Version 0.1.0 supports Pi 0.84.x and 0.85.x. It disables itself with a warning on other Pi versions.
 
 Other extensions that patch assistant rendering may affect load-order behavior. Raw mode delegates to the renderer that was active when this package loaded whenever raw mode is off.
 
@@ -100,7 +100,7 @@ Pi already provides `Ctrl+X` to copy the last assistant message. Use that when y
 
 ## Development
 
-Requirements: Node.js 22.19 or newer and Pi 0.84.x.
+Requirements: Node.js 22.19 or newer and Pi 0.85.x.
 
 ```bash
 npm install
