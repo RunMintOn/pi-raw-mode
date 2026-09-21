@@ -12,8 +12,8 @@ import { assistantMessage } from "./helpers.ts";
 
 initTheme("dark", false);
 
-test("patch supports Pi 0.85 raw rendering and restores Pi's renderer", () => {
-	assert.match(VERSION, /^0\.85\./);
+test("patch supports Pi 0.84–0.86 raw rendering and restores Pi's renderer", () => {
+	assert.match(VERSION, /^0\.8[4-6]\./);
 	const prototype = AssistantMessageComponent.prototype;
 	const originalRender = prototype.render;
 	const originalUpdateContent = prototype.updateContent;

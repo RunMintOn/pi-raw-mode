@@ -6,7 +6,7 @@ All notable changes to this project will be documented here.
 
 ### Changed
 
-- Added support for Pi 0.85.x.
+- Added support for Pi 0.85.x and 0.86.x.
 
 ## [0.1.0] - 2026-08-20
 
