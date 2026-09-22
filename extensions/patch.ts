@@ -48,25 +48,25 @@ function unavailable(reason: string): RawModePatchController {
 }
 
 export function installRawModePatch(initiallyEnabled: boolean): RawModePatchController {
-	const piVersion = (codingAgent as { VERSION?: unknown }).VERSION;
-	if (typeof piVersion !== "string" || !/^0\.8[4-6]\./.test(piVersion)) {
-		return unavailable(
-			`Pi ${String(piVersion ?? "unknown")} is not supported; expected Pi 0.84.x, 0.85.x, or 0.86.x.`,
-		);
-	}
-
+	const piVersion = String(
+		(codingAgent as { VERSION?: unknown }).VERSION ?? "unknown",
+	);
 	const Component = codingAgent.AssistantMessageComponent as unknown as
 		| AssistantComponentClass
 		| undefined;
 	const prototype = Component?.prototype;
 	if (!prototype) {
-		return unavailable("Pi no longer exports AssistantMessageComponent.");
+		return unavailable(
+			`Pi ${piVersion} no longer exports AssistantMessageComponent.`,
+		);
 	}
 	if (
 		typeof prototype.render !== "function" ||
 		typeof prototype.updateContent !== "function"
 	) {
-		return unavailable("Pi's assistant message component API has changed.");
+		return unavailable(
+			`Pi ${piVersion}'s assistant message component API has changed.`,
+		);
 	}
 
 	let state = prototype[PATCH_SYMBOL] as PatchState | undefined;

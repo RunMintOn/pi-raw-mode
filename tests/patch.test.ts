@@ -4,7 +4,6 @@ import test from "node:test";
 import {
 	AssistantMessageComponent,
 	initTheme,
-	VERSION,
 } from "@earendil-works/pi-coding-agent";
 
 import { installRawModePatch } from "../extensions/patch.ts";
@@ -12,8 +11,7 @@ import { assistantMessage } from "./helpers.ts";
 
 initTheme("dark", false);
 
-test("patch supports Pi 0.84–0.86 raw rendering and restores Pi's renderer", () => {
-	assert.match(VERSION, /^0\.8[4-6]\./);
+test("patch uses Pi's assistant renderer capability contract and restores Pi's renderer", () => {
 	const prototype = AssistantMessageComponent.prototype;
 	const originalRender = prototype.render;
 	const originalUpdateContent = prototype.updateContent;

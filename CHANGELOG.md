@@ -6,7 +6,8 @@ All notable changes to this project will be documented here.
 
 ### Changed
 
-- Added support for Pi 0.85.x and 0.86.x.
+- Use capability checks for `AssistantMessageComponent` so compatible Pi minor releases do not require version allowlist updates.
+- Added support for Pi 0.87.x.
 
 ## [0.1.0] - 2026-08-20
 
